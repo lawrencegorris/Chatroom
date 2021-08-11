@@ -20,8 +20,8 @@ The goal is to create a chatroom application where user choose a username and ar
 - [ ] Styling
 
 ## Current progress
-Created all the necessary files for the client/server side
-Next step: setting up socket.io
+Setup socket.io and getting a console log whenever someone connects.
+Next up: 
 
 ## Mind Doodles:
 Seems like a really fun app to build and expand on
