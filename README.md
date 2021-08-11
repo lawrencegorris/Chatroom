@@ -4,7 +4,7 @@ The goal is to create a chatroom application where user choose a username and ar
 
 ## FEATURES
 - [ ] UI for easy chatting
-- [ ] Must be possible to send a message to everyone or to yourself
+- [x] Must be possible to send a message to everyone or to yourself
 - [ ] Identify users by username
 - [ ] A list of all the connected users
 - [ ] Implement something funny
@@ -20,8 +20,14 @@ The goal is to create a chatroom application where user choose a username and ar
 - [ ] Styling
 
 ## Current progress
-Setup socket.io and getting a console log whenever someone connects.
-Next up: 
+Setup socket, console keeps track of amount of user connected, and when user connects and disconnects.
+Able to send messages to yourself or all users.
+Currently a lot of console.logs in code for testing => will be removed later
 
 ## Mind Doodles:
 Seems like a really fun app to build and expand on
+Fun working with sockets!
+
+Not to forget: 
+- io = all connected users
+- socket = user itself
