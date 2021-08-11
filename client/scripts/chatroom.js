@@ -1,0 +1,1 @@
+console.log('chatroom.js is linked to the HTML page')
