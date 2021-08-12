@@ -53,6 +53,12 @@ function findUser(id) {
     return user;
 }
 
+// Show user count
+function showUserAmount(counter){
+    console.log(counter);
+    io.emit('showUserAmount', counter);
+}
+
 // What happens on connect/disconnect
 
 io.on('connection', socket => {
@@ -66,31 +72,33 @@ io.on('connection', socket => {
         socket.emit('displayMessage', 'You joined');
         socket.broadcast.emit('userConnected', username);
         console.log(usersConnected);
+        showUserAmount(counter);
     });
 
     socket.on('disconnect', (command) => {
-        console.log(usersConnected);
+        //console.log(usersConnected);
         let user = findUser(socket.id);
         counterUserDisonnects();
-        console.log(user);
+        //console.log(user);
         if(user){
             usersConnected.splice(user, 1);
             console.log('user ' + user.username + ' disconnected');
             io.emit('displayMessage', `${user.username} left the chat`);
         }
+        showUserAmount(counter);
     });
 
     // Sending message to everyone
     socket.on('sendToAll', (message) => {
         let user = findUser(socket.id);
-        console.log('sending message to all: ' + message);
+        //console.log('sending message to all: ' + message);
         socket.broadcast.emit('displayMessage', `${user.username}: ${message}`);
         socket.emit('displayMessage', ('You: ' + message));
     });
 
     // Sending message to yourself
     socket.on('sendToSelf', (message) => {
-        console.log('sending message to self: ' + message);
+        //console.log('sending message to self: ' + message);
         socket.emit('displayMessage', (message));
     });
 });

@@ -27,6 +27,7 @@ sendSelfButton.addEventListener('click', () => {
 
 // Return message from server
 const chatBox = document.querySelector('#chat-box');
+const userCountBox = document.querySelector('#users-online-box');
 
 socket.on('displayMessage', (message) => {
     chatBox.innerHTML += '<br>' + message;
@@ -34,4 +35,12 @@ socket.on('displayMessage', (message) => {
 
 socket.on('userConnected', (username) => {
     chatBox.innerHTML += '<br>' + `${username} is now connected`;
+});
+
+socket.on('showUserAmount', (counter) => {
+    if(counter == 1){
+        userCountBox.innerHTML = `${counter} user online`;
+    }else {
+        userCountBox.innerHTML = `${counter} users online`;
+    }
 });
